@@ -19,7 +19,6 @@ package org.springframework.http.client;
 import java.io.IOException;
 import java.net.URI;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.Request;
@@ -28,8 +27,6 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.http.HttpMethod;
 import org.springframework.util.Assert;
-
-
 
 /**
  * {@link ClientHttpRequestFactory} implementation based on Jetty's {@link HttpClient}.
@@ -136,7 +133,6 @@ public class JettyClientHttpRequestFactory implements ClientHttpRequestFactory, 
 		}
 
 		Request request = this.httpClient.newRequest(uri).method(httpMethod.name());
-		request.timeout(10, TimeUnit.SECONDS);
 		return new JettyClientHttpRequest(request, this.readTimeout);
 	}
 }
