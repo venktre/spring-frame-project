@@ -251,11 +251,6 @@ class ConfigurationClassBeanDefinitionReader {
 			beanDef.setDefaultCandidate(false);
 		}
 
-		Bean.Bootstrap instantiation = bean.getEnum("bootstrap");
-		if (instantiation == Bean.Bootstrap.BACKGROUND) {
-			beanDef.setBackgroundInit(true);
-		}
-
 		String initMethodName = bean.getString("initMethod");
 		if (StringUtils.hasText(initMethodName)) {
 			beanDef.setInitMethodName(initMethodName);
